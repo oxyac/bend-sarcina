@@ -1,0 +1,9 @@
+<div>
+  <div  class = 'horizontal-align' *ngFor="let area of groups; let i = index" >
+    <p style="color: azure; flex-basis: 100%">Zona {{i+1}}</p>
+    <div *ngFor="let product of groups[i]">
+      <app-product
+        [product]="product"></app-product>
+    </div>
+  </div>
+</div>

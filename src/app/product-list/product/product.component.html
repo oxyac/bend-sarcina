@@ -1,0 +1,9 @@
+<div class = 'product'
+  [ngClass]="product?.joinedWith==null ? 'yell' : ''">
+  <div
+    class = 'product'
+    [ngClass]="product?.status=='closed' && product?.joinedWith==null ? 'red' : ''">
+    <p class = 'sku'>{{product.sku}}</p>
+    <p class = 'def_sku'>{{product.defaultSku}}</p>
+  </div>
+</div>

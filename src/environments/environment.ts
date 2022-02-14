@@ -2,9 +2,14 @@
 // `ng build` replaces `environment.ts` with `environment.prod.ts`.
 // The list of file replacements can be found in `angular.json`.
 
+// this and prod file is replaced on runtime with contents of env.json in app.module.ts initializeAppEnv
 export const environment = {
-  production: false
+  production: false,
+  siteUrl: '',
+  serverTimezone: '',
+  apiHost: '',
 };
+
 
 /*
  * For easier debugging in development mode, you can import the following file
