@@ -1,8 +1,27 @@
-<div class = 'product'
-  [ngClass]="product?.joinedWith==null ? 'yell' : ''">
-  <div
-    class = 'product'
-    [ngClass]="product?.status=='closed' && product?.joinedWith==null ? 'red' : ''">
+<div class = 'product orange' *ngIf="product?.id == 2861">
+  <div>
+    <p class = 'sku'>{{product.sku}}</p>
+    <p class = 'def_sku'>{{product.defaultSku}}</p>
+  </div>
+</div>
+
+<div class = 'product' *ngIf="product?.joinedWith!=null ">
+  <div>
+    <p class = 'sku'>{{product.sku}}</p>
+    <p class = 'def_sku'>{{product.defaultSku}}</p>
+  </div>
+  <div class="link"></div>
+</div>
+
+<div class = 'product yell' *ngIf="product?.joinedWith==null  && product?.status=='open' && product?.id != 2861">
+  <div>
+    <p class = 'sku'>{{product.sku}}</p>
+    <p class = 'def_sku'>{{product.defaultSku}}</p>
+  </div>
+</div>
+
+<div class = 'product red' *ngIf="product?.status=='closed' && product?.joinedWith==null">
+  <div>
     <p class = 'sku'>{{product.sku}}</p>
     <p class = 'def_sku'>{{product.defaultSku}}</p>
   </div>

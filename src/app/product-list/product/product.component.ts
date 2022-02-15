@@ -1,4 +1,4 @@
-import { AfterContentInit, Component, Input, OnInit, ViewChild } from '@angular/core';
+import { AfterContentInit, Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
 import { Product } from '../product';
 
 @Component({
@@ -11,20 +11,7 @@ export class ProductComponent implements OnInit {
   @Input()
   product!: Product;
 
-  @ViewChild('prod')
-  prod: any;
-
-  // constructor(product: Product) {
-  //   this.product = product;
-  // }
-
   ngOnInit(): void {
-    this.assignTag()
   }
-
-  assignTag(){
-    let prodTag = document.getElementById('prodTag');
-    prodTag?.classList.add('yell');
-    }
 
 }

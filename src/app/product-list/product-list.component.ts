@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Product } from './product';
 import * as data from '../../ressources/new-things.json';
-import { ProductComponent } from './product/product.component';
 
 @Component({
   selector: 'app-product-list',
@@ -23,7 +22,7 @@ export class ProductListComponent implements OnInit {
 
   ngOnInit(): void {
     this.populate()
-    this.divideByArea(this.products)
+    this.divideByArea(this.products);
   }
 
   populate(){
@@ -35,7 +34,8 @@ export class ProductListComponent implements OnInit {
       products.push(product);
     }
 
-    this.products = products.slice(0, 19);
+    //handle native json parsing extra elements in array
+    this.products = products.slice(0, products.length-2);
   }
 
   divideByArea(pArr: Product[]) {
@@ -57,5 +57,19 @@ export class ProductListComponent implements OnInit {
 
     this.groups = groupBy(pArr);
 
+    let tempArr: any = [];
+    for (let i = 0; i < this.groups.length; i++) {
+      tempArr = this.groups[i]
+      this.groups[i].forEach((val: Product, i: number) => {
+        console.log(i, val);
+
+        if(val.joinedWith){
+          let matchId = tempArr.findIndex((el: Product) => el.id == val.joinedWith);
+          let currId = tempArr.indexOf(val);
+          let currEl = tempArr.splice(currId, 1);
+          tempArr.splice(matchId+1, 0, currEl[0]);
+        }
+      })
+    }
   }
 }
