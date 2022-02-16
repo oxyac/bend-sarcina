@@ -57,19 +57,21 @@ export class ProductListComponent implements OnInit {
 
     this.groups = groupBy(pArr);
 
-    let tempArr: any = [];
-    for (let i = 0; i < this.groups.length; i++) {
-      tempArr = this.groups[i]
-      this.groups[i].forEach((val: Product, i: number) => {
-        console.log(i, val);
+    for (let i = 0; i < 4; i++) {
+      let tempArr: any = [];
+      for (let i = 0; i < this.groups.length; i++) {
+        tempArr = this.groups[i]
+        this.groups[i].forEach((val: Product, i: number) => {
+          console.log(i, val);
 
-        if(val.joinedWith){
-          let matchId = tempArr.findIndex((el: Product) => el.id == val.joinedWith);
-          let currId = tempArr.indexOf(val);
-          let currEl = tempArr.splice(currId, 1);
-          tempArr.splice(matchId+1, 0, currEl[0]);
-        }
-      })
+          if (val.joinedWith) {
+            let matchId = tempArr.findIndex((el: Product) => el.id == val.joinedWith);
+            let currId = tempArr.indexOf(val);
+            let currEl = tempArr.splice(currId, 1);
+            tempArr.splice(matchId + 1, 0, currEl[0]);
+          }
+        })
+      }
     }
   }
 }
