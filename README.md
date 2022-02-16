@@ -1,7 +1,6 @@
 --15.02.22--
 
-![image](https://user-images.githubusercontent.com/76494349/154142942-f5a20cfa-6669-4d80-ace8-56a508480970.png)
-
+![image](https://user-images.githubusercontent.com/76494349/154202150-4c1c33d6-0b24-411c-980d-03d1a1d35b91.png)
 
 --14.02.22--
 
